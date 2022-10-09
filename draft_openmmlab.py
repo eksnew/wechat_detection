@@ -1,3 +1,10 @@
+'''
+Author: eksnew
+Description: 
+Date: 2022-10-03 23:25:23
+LastEditTime: 2022-10-08 23:30:08
+LastEditors: eksnew
+'''
 # '''
 # Author: eksnew
 # Description:
@@ -45,7 +52,9 @@ checkpoint_file_rcnn = 'X:/Codes/2022/mmdetection/checkpoints/faster_rcnn_r50_fp
 
 device = 'cuda:0'
 # 初始化检测器
-model_rcnn = init_detector(config_file_rcnn, checkpoint_file_rcnn, device=device)
+model_rcnn = init_detector(config_file_rcnn,
+                           checkpoint_file_rcnn,
+                           device=device)
 # model_detectors = init_detector(config_file_detectors, checkpoint_file_detectors, device=device)
 # model_yolo = init_detector(config_file_yolo, checkpoint_file_yolo, device=device)
 # 推理演示图像
@@ -56,9 +65,13 @@ result_rcnn = inference_detector(model_rcnn, img)
 #print(result)
 #  model.show_result(img, result)
 # 将推理的结果保存
-img = model_rcnn.show_result(img, result_rcnn, bbox_color=(0, 255, 0), text_color=(0, 255, 0))
+img = model_rcnn.show_result(img,
+                             result_rcnn,
+                             bbox_color=(0, 255, 0),
+                             text_color=(0, 255, 0))
 # img = model_detectors.show_result(img, result_detectors, bbox_color=(255, 0, 0), text_color=(255, 0, 0))
 # img = model_yolo.show_result(img, result_yolo, bbox_color=(0, 0, 255), text_color=(0, 0, 255))
-cv2.imwrite(r'C:\Users\eksnew\OneDrive\Desktop\DRAFT\result3.jpg', img)
+# cv2.imwrite(r'C:\Users\eksnew\OneDrive\Desktop\DRAFT\result3.jpg', img)
+cv2.imwrite(r'X:\Codes\2022\wechat_detection\result3.jpg', img)
 #model.show_result(img, result, out_file='D:/DIP/result.jpg')
 print("Result Saved.")

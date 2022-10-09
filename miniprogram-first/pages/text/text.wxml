@@ -1,0 +1,31 @@
+<!--pages/text/text.wxml-->
+
+<!--swiper class=" swiper-container" indicator-dots indicator-color="white" autoplay interval="2000" circular-->
+<swiper class=" swiper-container" indicator-dots indicator-color="white"   circular>
+
+<!--第一个轮播图-->
+<swiper-item>
+  <view class="item">检测方法1</view>
+</swiper-item>
+
+  <!--第二个轮播图-->
+  <swiper-item>
+    <view class="item">检测方法2</view>
+  </swiper-item> 
+
+    <!--第三个轮播图-->
+  <swiper-item>
+    <view class="item">检测方法3</view>
+  </swiper-item> 
+
+</swiper>
+
+
+<view>
+  <view class ="camera-container">
+    <button  class="btn-opencam" bindtap="openCamera">打开摄像头</button>
+    <text class="tips-text">点击打开摄像头进行检测</text>
+  </view>
+</view>
+
+

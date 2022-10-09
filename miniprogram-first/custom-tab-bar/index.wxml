@@ -1,0 +1,7 @@
+<!--custom-tab-bar/index.wxml-->
+<van-tabbar active="{{active}}" bind:change="onChange">
+  <van-tabbar-item icon="search">检测</van-tabbar-item>
+  <van-tabbar-item icon="gem-o">历史记录</van-tabbar-item>
+  <van-tabbar-item icon="user-o">个人中心</van-tabbar-item>
+  <van-tabbar-item icon="setting-o">设置</van-tabbar-item>
+</van-tabbar>

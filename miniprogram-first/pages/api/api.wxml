@@ -1,0 +1,17 @@
+<!--pages/api/api.wxml-->
+<text>pages/api/api.wxml</text>
+
+<!--API分类
+事件监听类API
+特点:以on开头， 监听事件的发生
+举例:wx.onWindowResize
+
+同步API
+特点:以Sync结尾的API
+
+异步API
+特点:通过success fail complete接收返回的结果 
+-->
+
+
+

@@ -1,0 +1,6 @@
+<!--pages/camera/camera.wxml-->
+<camera device-position="back"  flash="off" binderror="error" style="width:100%;height:400px"></camera>
+
+<button type="primary" bindtap="getPhoto">拍摄照片</button>
+
+

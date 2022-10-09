@@ -1,0 +1,54 @@
+<!--轮播图的结构-->
+<!--indicator:下面指示器-->
+<swiper class=" swiper-container" indicator-dots indicator-color="white" autoplay interval="2000" circular>
+
+  <!--第一个轮播图-->
+  <swiper-item>
+    <view class="item">A</view>
+  </swiper-item>
+
+    <!--第二个轮播图-->
+    <swiper-item>
+      <view class="item">B</view>
+    </swiper-item> 
+
+      <!--第三个轮播图-->
+    <swiper-item>
+      <view class="item">C</view>
+    </swiper-item> 
+
+</swiper>
+
+<!--常用基础内容组件 text 和 rich-text-->
+<view>
+  手机号支持长按选中
+  <text selectable>15097321229</text>
+</view>
+
+<!--rich-text 利用nodes节点 把html字符串渲染为WXML UI结构 把服务器返回的商品详情标签渲染上来-->
+<rich-text nodes="<h1 style='color:red;'>标题<h1>"> </rich-text>
+
+<!--button组件  功能丰富 调用微信接口-->
+<button> 普通按钮 </button>
+<button type="primary"> 主色调按钮 </button>
+<button type="warn"> 警告按钮 </button>
+
+<!--size="mini"小尺寸按钮-->
+<button size="mini"> 普通按钮 </button>
+<button size="mini" type="primary"> 主色调按钮 </button>
+<button size="mini" type="warn"> 警告按钮 </button>
+
+<!--plain 镂空按钮-->
+<button size="mini" plain> 普通按钮 </button>
+<button size="mini" type="primary" plain> 主色调按钮 </button>
+<button size="mini" type="warn" plain> 警告按钮 </button>
+
+
+<!--image组件-->
+<!--image组件 通过mode指定裁剪 缩放的模式 默认是让图片填满image默认大小的框-->
+<image src="/images/1.png" mode="aspectFit"></image>
+
+
+
+
+
