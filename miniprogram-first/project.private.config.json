@@ -10,7 +10,7 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/camera/camera",
+          "pathName": "pages/text/text",
           "query": "",
           "launchMode": "default",
           "scene": null
