@@ -3,10 +3,13 @@
 
 <view>
   <view class ="login-container">
-    <uni-icons type="contact" size="30"></uni-icons>
-    <uni-icons custom-prefix="custom-icon" type="icon-youxi" size="30"></uni-icons>
-    <uni-icons type="contact-filled" size="100" color="#AFAFAF"></uni-icons>
-    <button  class="btn-login" bindtap="login">点击登录</button>
+
+    <block>
+      <image class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{nickName}}</text>
+    </block>
+
+    <button  class="btn-login" open-type="getUserInfo" bindgetuserinfo="login">点击登录</button>
     <text class="tips-text">登录后查看检测历史</text>
   </view>
 </view>

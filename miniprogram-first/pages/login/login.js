@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:  { }//存储拿到的用户信息
+    userInfo:  {nikeName: "",  avatarUrl: "/pages/images/touxiang.jpg"}//存储拿到的用户信息
 
   },
 

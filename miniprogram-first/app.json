@@ -1,62 +1,50 @@
 {
   "desc": "fst:小程序项目的全局配置文件，包括小程序的所有页面路径、窗口外观、界面表现、底部tab等",
-  "pages":[
+  "pages": [
     "pages/text/text",
     "pages/history/history",
     "pages/login2/login2",
     "pages/config/config",
     "pages/camera/camera",
     "pages/ind/ind",
-
     "pages/login/login",
     "pages/swiper/swiper",
     "pages/api/api",
     "pages/list/list",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/telephone/telephone"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-
   "sitemapLocation": "sitemap.json",
-  
-
   "usingComponents": {
-
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index"
-     
   },
-  "tabBar":{
+  "tabBar": {
     "custom": true,
-    "list":[
-
+    "list": [
       {
         "pagePath": "pages/text/text",
         "text": "检测"
       },
-
       {
         "pagePath": "pages/history/history",
         "text": "历史记录"
       },
-      
-      
       {
         "pagePath": "pages/login2/login2",
         "text": "个人中心"
-   
       },
-
       {
         "pagePath": "pages/config/config",
         "text": "设置"
       }
     ]
   }
-
 }

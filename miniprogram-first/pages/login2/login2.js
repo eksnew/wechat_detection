@@ -5,24 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+    nickName: "",  
+    avatarUrl: "/pages/images/touxiang.jpg",//存储拿到的用户信息
     hasUserInfo: false,
     canIUseGetUserProfile: false,
   },
 
 //获取用户信息
  login:function(){
-    wx.getUserProfile({
+    console.log('点击了登录')  
+    wx.openSetting({})
+    var that = this; 
+    wx.getUserInfo({
       desc: '获取用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        this.setData({
-          userInfo: res.userInfo,
+      success: function (res) {
+        console.log('success', res.userInfo)  
+        that.setData({
+          nickName: res.userInfo.nickName,
+          avatarUrl: res.userInfo.avatarUrl,
           hasUserInfo: true
         })
-        wx.navigateTo({
-          url: '/pages/ind/ind',
-        })
+      },
+
+      fail: function (res) {
+        console.log('fail',res)  
+        //wx.openSetting({})
       }
+
     })
   },
     

@@ -5,9 +5,20 @@
   height: 750rpx;
   background-color: #F8F8F8;
   display:flex;
+
+  /*在垂直方向排列*/
   flex-direction:column;
-  justify-content:center;
+  /*元素在水平方向如何排列*/
+  justify-content:center;/*space-around平均排列*/
   align-items:center;
+}
+
+.userinfo-avatar
+{
+  width: 350rpx;
+  height:350rpx;
+  border-radius: 175rpx;
+
 }
 
 .btn-login{
