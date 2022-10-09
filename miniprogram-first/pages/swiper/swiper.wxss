@@ -1,0 +1,28 @@
+/* 轮播图样式 */
+.swiper-container {
+  height: 150px;
+}
+
+.item{
+  height: 100%;
+  line-height: 150px;
+  text-align: center;
+}
+
+swiper-item:nth-child(1){
+  background-color: lightgreen;
+}
+
+swiper-item:nth-child(2){
+  background-color: lightskyblue;
+}
+
+swiper-item:nth-child(3){
+  background-color: lightpink;
+}
+
+
+
+image{
+  border: 1px solid red;
+}

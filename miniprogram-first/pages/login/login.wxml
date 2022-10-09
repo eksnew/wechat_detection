@@ -1,0 +1,16 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <block>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nikeName}}</text>
+  </block>
+  
+  <view class="userinfo">
+    <button open-type="getUserInfo" bindgetuserinfo="auth">点击登录</button>
+    
+  </view>
+
+  <view class="usermotto">
+    <text class="user-motto">welcome</text>
+  </view>
+</view>

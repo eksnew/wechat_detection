@@ -1,0 +1,19 @@
+<!--pages/login2/login2.wxml-->
+
+
+<view>
+  <view class ="login-container">
+
+    <block>
+      <image class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{nickName}}</text>
+    </block>
+
+    <button  class="btn-login" open-type="getUserInfo" bindgetuserinfo="login">点击登录</button>
+    <text class="tips-text">登录后查看检测历史</text>
+  </view>
+</view>
+
+
+
+

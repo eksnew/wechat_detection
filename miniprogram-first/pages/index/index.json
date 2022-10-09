@@ -1,0 +1,5 @@
+{
+  "desc": "fst:当前页面的配置文件，配置窗口的外观、表现等，会覆盖全局中相同的配置",
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#00b26a"
+}

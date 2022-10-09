@@ -1,0 +1,10 @@
+<!--pages/camera/camera.wxml-->
+<camera device-position="back"  flash="off" binderror="error" style=" width:100%;height:800rpx"></camera>
+<!--style=" width:100%;height:800rpx"></camera>-->
+<button type="primary" bindtap="getPhoto">开始检测</button>
+<button type="primary" bindtap="stopPhoto">停止检测</button>
+
+<view class="preview-tips">检测结果</view>
+<image class = result-container wx:if="{{result_base64}}"  mode="widthFix" src="data:image/jpg;base64,{{result_base64}}"></image>
+
+

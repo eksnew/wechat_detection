@@ -1,0 +1,7 @@
+*.rar
+*.7z
+*.zip
+*.idea
+detectors_cascade_rcnn_r50_1x_coco-7b6ec977.pth
+faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth
+yolov3_d53_320_273e_coco-421362b6.pth

@@ -1,0 +1,35 @@
+/* pages/login2/login2.wxss */
+
+
+.login-container{
+  height: 750rpx;
+  background-color: #F8F8F8;
+  display:flex;
+
+  /*在垂直方向排列*/
+  flex-direction:column;
+  /*元素在水平方向如何排列*/
+  justify-content:center;/*space-around平均排列*/
+  align-items:center;
+}
+
+.userinfo-avatar
+{
+  width: 350rpx;
+  height:350rpx;
+  border-radius: 175rpx;
+
+}
+
+.btn-login{
+  width: 90%;
+  border-radius: 25px;
+  margin: 25px 0;
+  background-color: #00c04a;
+
+}
+
+.tips-text{
+  font-size: 12px;
+  color:gray;
+}
