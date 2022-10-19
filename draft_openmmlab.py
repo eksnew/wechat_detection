@@ -2,7 +2,7 @@
 Author: eksnew
 Description: 
 Date: 2022-10-03 23:25:23
-LastEditTime: 2022-10-08 23:30:08
+LastEditTime: 2022-10-19 19:35:49
 LastEditors: eksnew
 '''
 # '''
@@ -58,7 +58,10 @@ model_rcnn = init_detector(config_file_rcnn,
 # model_detectors = init_detector(config_file_detectors, checkpoint_file_detectors, device=device)
 # model_yolo = init_detector(config_file_yolo, checkpoint_file_yolo, device=device)
 # 推理演示图像
-img = 'X:/Codes/2022/mmdetection/demo/demo.jpg'
+# img = 'X:/Codes/2022/mmdetection/demo/demo.jpg'
+# img = r'X:\Codes\2022\wechat_detection\test1.jpg'
+# img = r'X:\Codes\2022\wechat_detection\test2.jpg'
+img = r'X:\Codes\2022\wechat_detection\test3.jpg'
 result_rcnn = inference_detector(model_rcnn, img)
 # result_detectors = inference_detector(model_detectors, img)
 # result_yolo = inference_detector(model_yolo, img)
@@ -72,6 +75,6 @@ img = model_rcnn.show_result(img,
 # img = model_detectors.show_result(img, result_detectors, bbox_color=(255, 0, 0), text_color=(255, 0, 0))
 # img = model_yolo.show_result(img, result_yolo, bbox_color=(0, 0, 255), text_color=(0, 0, 255))
 # cv2.imwrite(r'C:\Users\eksnew\OneDrive\Desktop\DRAFT\result3.jpg', img)
-cv2.imwrite(r'X:\Codes\2022\wechat_detection\result3.jpg', img)
+cv2.imwrite(r'X:\Codes\2022\wechat_detection\result_test3.jpg', img)
 #model.show_result(img, result, out_file='D:/DIP/result.jpg')
 print("Result Saved.")
