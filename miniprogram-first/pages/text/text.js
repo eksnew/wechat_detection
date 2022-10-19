@@ -1,9 +1,27 @@
 // pages/text/text.js
+//导入两个成员
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
+import { store } from '../../store/store'
+
+
 Page({
 
   /**
    * 页面的初始数据
-   */
+   */ 
+  //挂载一下全局变量
+  behaviors:[storeBindingsBehavior],
+  storeBindings:{
+    store,
+    fields:{
+      methodChoice:'methodChoice'
+    },
+
+    actions:{
+      updateChoice:'updateChoice'
+    },
+  },
+
   data: {
 
   },
@@ -15,6 +33,16 @@ Page({
     wx.navigateTo({
       url:'../camera/camera',
     })
+  },
+  
+  //轮播图切换时调用的函数
+  handleSwiperChange:function(e){
+    this.updateChoice(e.detail.current)
+    this.setData({
+      methodChoice:e.detail.current
+    })
+    //console.log( e.detail.current)
+
   },
 
 

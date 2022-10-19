@@ -5,8 +5,7 @@ from django.urls import path
 from api import views
 import sys
 import django
-# sys.path.extend(['C:\\Users\\Ateng\\Desktop\\wechat_detection-main\\app\\DI\\DI\\DIGG'])
-sys.path.extend([r'X:\Codes\2022\wechat_detection\DI\DI\DIGG'])
+sys.path.extend(['C:\\Users\\Ateng\\Desktop\\wechat_detection-main\\app\\DI\\DI\\DIGG'])
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'DIGG.settings'
 django.setup()

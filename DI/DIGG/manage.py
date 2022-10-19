@@ -12,6 +12,8 @@ import store
 def main():
 
     store.model_rcnn = init_detector(store.config_file_rcnn, store.checkpoint_file_rcnn, device=store.device)
+    store.model_detectors = init_detector(store.config_file_detectors, store.checkpoint_file_detectors, device=store.device)
+    store.model_yolo = init_detector(store.config_file_yolo, store.checkpoint_file_yolo, device=store.device)
 
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DIGG.settings')
