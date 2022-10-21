@@ -129,7 +129,7 @@ result_rcnn = inference_detector(model_rcnn, img)
 #  model.show_result(img, result)
 
 # 获取信息
-obj_dic = get_info_from_model_result(result_rcnn, 0.3)
+obj_dic = get_info_from_model_result(result_rcnn, 0.7)
 print(obj_dic)
 
 # 将推理的结果保存
