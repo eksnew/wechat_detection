@@ -2,7 +2,7 @@
 Author: eksnew
 Description: 
 Date: 2022-10-21 14:14:45
-LastEditTime: 2022-10-21 15:01:34
+LastEditTime: 2022-10-21 15:32:01
 LastEditors: eksnew
 '''
 import base64
@@ -31,7 +31,7 @@ def base64_to_img(base64_str):
 def main():
     # print("hello python!")
     # 测试样图
-    # base64img = 'iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAByklEQVR4Xr2VMY7lIAyGjSjokgsgcQ13XCm5wCS5QHIlOq6BlAvkdRQIr+HN6O1WZpuJUqBPCrZ//3aA/n0y/A6oAHOmK967oR30EPB0GlexALqL7iGA+gRYQ5oMnTAMkHZv53D/B/CgAqzxc4cAOFMsG9k1f1IXAMCE99nfH4EE0KWmI9jJu676AMgFTFq5Mg8LuBFQ0T1eV0xb1kdseYiAsjsNq84luiv0sBKo3i6YVrqPmFToAsmgqFBWYu3dboYAxbRFu+X7yPrxQ6BCmaPmr48WuVtbBIYqsh3cg/rI7Q4RUKQd9RXTYuALm4QyILsRAJeYy9bCyqAC7caqfL8oqdiLEwFShbR4vuk7dRGwhKqZjR3EEjZLySDcFe2E9Hir4hDg3rLqFxUV+TAGIK1RExXgO8IQoMjGsVsoCzZVxgDwcQ6O53vu0yACdpCiNtPVO/bdCCCCLw7Lw8o+ao2SQTXuyuwgxxsR+pYSATeJfbqxu1HXPkAiaFsK0kygsj5NT10EvAu9e5GdDDd5DPAohLZyFp/eqQ+BNhB2Jv2Y1uwRcBp6sfCG832HlYCnizSr2OUfA+1P6B5gU+gH3xIKoO31v55fAn8AgnuZPZMcP7cAAAAASUVORK5CYII='
+    base64img = 'iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAByklEQVR4Xr2VMY7lIAyGjSjokgsgcQ13XCm5wCS5QHIlOq6BlAvkdRQIr+HN6O1WZpuJUqBPCrZ//3aA/n0y/A6oAHOmK967oR30EPB0GlexALqL7iGA+gRYQ5oMnTAMkHZv53D/B/CgAqzxc4cAOFMsG9k1f1IXAMCE99nfH4EE0KWmI9jJu676AMgFTFq5Mg8LuBFQ0T1eV0xb1kdseYiAsjsNq84luiv0sBKo3i6YVrqPmFToAsmgqFBWYu3dboYAxbRFu+X7yPrxQ6BCmaPmr48WuVtbBIYqsh3cg/rI7Q4RUKQd9RXTYuALm4QyILsRAJeYy9bCyqAC7caqfL8oqdiLEwFShbR4vuk7dRGwhKqZjR3EEjZLySDcFe2E9Hir4hDg3rLqFxUV+TAGIK1RExXgO8IQoMjGsVsoCzZVxgDwcQ6O53vu0yACdpCiNtPVO/bdCCCCLw7Lw8o+ao2SQTXuyuwgxxsR+pYSATeJfbqxu1HXPkAiaFsK0kygsj5NT10EvAu9e5GdDDd5DPAohLZyFp/eqQ+BNhB2Jv2Y1uwRcBp6sfCG832HlYCnizSr2OUfA+1P6B5gU+gH3xIKoO31v55fAn8AgnuZPZMcP7cAAAAASUVORK5CYII='
     # 解码
     # imgdata = base64.b64decode(base64img)
     # 进行一个魔法
@@ -44,8 +44,8 @@ def main():
 
     real_pic = base64_to_img(base64img)
 
-    cv.imshow("Login", real_pic)
-    cv.waitKey()
+    # cv.imshow("Login", real_pic)
+    # cv.waitKey()
 
     config_file_rcnn = 'X:/Codes/2022/mmdetection/configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py'
     checkpoint_file_rcnn = 'X:/Codes/2022/mmdetection/checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth'
@@ -56,6 +56,7 @@ def main():
                                device=device)
 
     result_rcnn = inference_detector(model_rcnn, real_pic)
+    print(model_rcnn)
     img = model_rcnn.show_result(real_pic,
                                  result_rcnn,
                                  bbox_color=(0, 255, 0),
