@@ -2,7 +2,7 @@
 Author: eksnew
 Description: 
 Date: 2022-10-03 23:25:23
-LastEditTime: 2022-10-22 15:27:57
+LastEditTime: 2022-10-22 21:30:39
 LastEditors: eksnew
 '''
 # '''
@@ -82,6 +82,7 @@ PALETTE = [(220, 20, 60), (119, 11, 32), (0, 0, 142), (0, 0, 230),
 
 
 def get_info_from_model_result(model_result: list,
+                               img_shape: tuple,
                                threshold: float = 0.3) -> dict:
     '''
     get_info_from_model_result 函数被设计用于返回检测到的类型、矩形坐标及置信度list。
@@ -102,10 +103,14 @@ def get_info_from_model_result(model_result: list,
                 #     pass
                 # for loc in range(1, 4, 2):
                 #     pass
-                obj_info[0] = obj_info[0]
+                obj_info[0] = obj_info[0] / img_shape[0]
+                obj_info[1] = obj_info[1] / img_shape[1]
+                obj_info[2] = obj_info[2] / img_shape[0]
+                obj_info[3] = obj_info[3] / img_shape[1]
                 # 在首元素添加序号
                 obj_dic[type_list[i] + str(j + 1)] = np.insert(obj_info, 0, i)
                 # print(np.insert(obj_info, 0, i))
+    return obj_dic
 
 
 config_file_rcnn = 'X:/Codes/2022/mmdetection/configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py'
