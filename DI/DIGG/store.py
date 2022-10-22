@@ -2,7 +2,7 @@
 Author: eksnew
 Description: 
 Date: 2022-10-20 15:13:58
-LastEditTime: 2022-10-21 23:40:53
+LastEditTime: 2022-10-22 15:31:43
 LastEditors: eksnew
 '''
 from mmdet.apis import init_detector, inference_detector
@@ -68,7 +68,10 @@ palette_list = [(220, 20, 60), (119, 11, 32), (0, 0, 142), (0, 0, 230),
                 (246, 0, 122), (191, 162, 208)]
 
 global get_info_from_model_result
+
+
 def get_info_from_model_result(model_result: list,
+                               img_shape: tuple,
                                threshold: float = 0.3) -> dict:
     '''
     get_info_from_model_result 函数被设计用于返回检测到的类型、矩形坐标及置信度list。
@@ -77,11 +80,23 @@ def get_info_from_model_result(model_result: list,
     '''
     obj_dic = {}
     for i, class_info in enumerate(model_result):
+        # 若有检测结果
         if class_info.shape[0]:
             # print(class_info.shape, class_info, type_list[i])
             for j, obj_info in enumerate(class_info):
+                # 置信度筛选
                 if obj_info[-1] <= threshold:
                     continue
+                # 改传比例
+                # for loc in range(0, 4, 2):
+                #     pass
+                # for loc in range(1, 4, 2):
+                #     pass
+                obj_info[0] = obj_info[0] / img_shape[0]
+                obj_info[1] = obj_info[1] / img_shape[1]
+                obj_info[2] = obj_info[2] / img_shape[0]
+                obj_info[3] = obj_info[3] / img_shape[1]
+                # 在首元素添加序号
                 obj_dic[type_list[i] + str(j + 1)] = np.insert(obj_info, 0, i)
                 # print(np.insert(obj_info, 0, i))
 
@@ -89,6 +104,8 @@ def get_info_from_model_result(model_result: list,
 
 
 global base64_to_img
+
+
 def base64_to_img(base64_str):
     """
     base64转img函数。传入RGB格式下的base64，传出为RGB格式的numpy矩阵。

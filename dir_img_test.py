@@ -2,7 +2,7 @@
 Author: eksnew
 Description: 
 Date: 2022-10-21 14:14:45
-LastEditTime: 2022-10-21 15:32:01
+LastEditTime: 2022-10-22 15:29:24
 LastEditors: eksnew
 '''
 import base64
@@ -43,7 +43,8 @@ def main():
     # print(real_pic)
 
     real_pic = base64_to_img(base64img)
-
+    print(real_pic.shape)
+    print(type(real_pic.shape))
     # cv.imshow("Login", real_pic)
     # cv.waitKey()
 
