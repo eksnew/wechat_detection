@@ -2,7 +2,7 @@
 Author: eksnew
 Description: 
 Date: 2022-10-03 23:25:23
-LastEditTime: 2022-10-22 21:30:39
+LastEditTime: 2022-10-23 17:31:53
 LastEditors: eksnew
 '''
 # '''
@@ -81,9 +81,10 @@ PALETTE = [(220, 20, 60), (119, 11, 32), (0, 0, 142), (0, 0, 230),
            (201, 57, 1), (246, 0, 122), (191, 162, 208)]
 
 
-def get_info_from_model_result(model_result: list,
-                               img_shape: tuple,
-                               threshold: float = 0.3) -> dict:
+def get_info_from_model_result(
+        model_result: list,
+        #    img_shape: tuple,
+        threshold: float = 0.3) -> dict:
     '''
     get_info_from_model_result 函数被设计用于返回检测到的类型、矩形坐标及置信度list。
         @param model_result: list inference_detector返回的结果
@@ -103,37 +104,37 @@ def get_info_from_model_result(model_result: list,
                 #     pass
                 # for loc in range(1, 4, 2):
                 #     pass
-                obj_info[0] = obj_info[0] / img_shape[0]
-                obj_info[1] = obj_info[1] / img_shape[1]
-                obj_info[2] = obj_info[2] / img_shape[0]
-                obj_info[3] = obj_info[3] / img_shape[1]
+                # obj_info[0] = obj_info[0] / img_shape[0]
+                # obj_info[1] = obj_info[1] / img_shape[1]
+                # obj_info[2] = obj_info[2] / img_shape[0]
+                # obj_info[3] = obj_info[3] / img_shape[1]
                 # 在首元素添加序号
                 obj_dic[type_list[i] + str(j + 1)] = np.insert(obj_info, 0, i)
                 # print(np.insert(obj_info, 0, i))
     return obj_dic
 
 
-config_file_rcnn = 'X:/Codes/2022/mmdetection/configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py'
+# config_file_rcnn = 'X:/Codes/2022/mmdetection/configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py'
 # config_file_detectors = 'configs/detectors/detectors_cascade_rcnn_r50_1x_coco.py'
 # config_file_yolo = 'configs/yolo/yolov3_d53_320_273e_coco.py'
+config_file_CH = 'yolox_s_8x8_300e_coco.py'
 # 从 model zoo 下载 checkpoint 并放在 `checkpoints/` 文件下
 # 网址为: http://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_1x_coco/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth
-checkpoint_file_rcnn = 'X:/Codes/2022/mmdetection/checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth'
+# checkpoint_file_rcnn = 'X:/Codes/2022/mmdetection/checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth'
 # checkpoint_file_detectors = 'checkpoints/detectors_cascade_rcnn_r50_1x_coco-7b6ec977.pth'
 # checkpoint_file_yolo = 'checkpoints/yolov3_d53_320_273e_coco-421362b6.pth'
+checkpoint_file_CH = 'epoch_30.pth'
 
 device = 'cuda:0'
 # 初始化检测器
-model_rcnn = init_detector(config_file_rcnn,
-                           checkpoint_file_rcnn,
-                           device=device)
+model_rcnn = init_detector(config_file_CH, checkpoint_file_CH, device=device)
 # model_detectors = init_detector(config_file_detectors, checkpoint_file_detectors, device=device)
 # model_yolo = init_detector(config_file_yolo, checkpoint_file_yolo, device=device)
 # 推理演示图像
 # img = 'X:/Codes/2022/mmdetection/demo/demo.jpg'
 # img = r'X:\Codes\2022\wechat_detection\test1.jpg'
 # img = r'X:\Codes\2022\wechat_detection\test2.jpg'
-img = r'X:\Codes\2022\wechat_detection\test3.jpg'
+img = r'X:\Codes\2022\wechat_detection\IMG_3518.jpg'
 result_rcnn = inference_detector(model_rcnn, img)
 # result_detectors = inference_detector(model_detectors, img)
 # result_yolo = inference_detector(model_yolo, img)
@@ -141,8 +142,8 @@ result_rcnn = inference_detector(model_rcnn, img)
 #  model.show_result(img, result)
 
 # 获取信息
-print(img.shape)
-print(type(img.shape))
+# print(img.shape)
+# print(type(img.shape))
 obj_dic = get_info_from_model_result(result_rcnn, 0.7)
 print(obj_dic)
 
@@ -150,7 +151,8 @@ print(obj_dic)
 img = model_rcnn.show_result(img,
                              result_rcnn,
                              bbox_color=(0, 255, 0),
-                             text_color=(0, 255, 0))
+                             text_color=(0, 255, 0),
+                             score_thr=0.4)
 
 for key, value in obj_dic.items():
     # print(value, value[0], type(value[0]))
