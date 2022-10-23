@@ -164,10 +164,8 @@ Page({
             var result = that.data.result_base64
             
             for (let key in result) {
-              console.log(result[key][1])
-              console.log(width_px)
-              console.log(height_px)
-              ctx2.fillText(key, result[key][1]*width_px, result[key][2]*height_px)//汉字标注
+              let word = key + '  :  ' + result[key][5].toFixed(3)
+              ctx2.fillText(word, result[key][1]*width_px, result[key][2]*height_px)//汉字标注
               ctx2.strokeRect((result[key][1]*width_px).toFixed(), (result[key][2]*height_px).toFixed(), ((result[key][3]-result[key][1])*width_px).toFixed(), ((result[key][4]-result[key][2])*height_px).toFixed()); //绘制矩形框
             }
             //-------------------------------------------------------------------
@@ -199,24 +197,21 @@ Page({
         methodName: " detectors " 
       })
     }
-    else{
+    else if(store.methodChoice == 2){
       this.setData({
         methodName: " yolo " 
       })
     }
+    else{
+      this.setData({
+        methodName: " transfer " 
+      })
+    }
     //检测置信度阈值
-    console.log(store.score_thr)
+    //console.log(store.score_thr)
     this.setData({
       'score_thr': store.score_thr
     })
-    
-    /*
-    var myDate = new Date();
-    this.setData({
-      detectionFps: myDate.getTime() //获取当前时间(从1970.1.1开始的毫秒数) 
-    })
-    */
-
   },
     /**
    * 生命周期函数--监听页面卸载

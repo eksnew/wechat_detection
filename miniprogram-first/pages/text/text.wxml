@@ -4,17 +4,22 @@
 <swiper class=" swiper-container" indicator-dots indicator-color="white" current="{{methodChoice}}" bindchange="handleSwiperChange"   circular>
 <!--第一个轮播图-->
 <swiper-item>
-  <view class="item">检测方法1</view>
+  <view class="item">rcnn</view>
 </swiper-item>
 
   <!--第二个轮播图-->
   <swiper-item>
-    <view class="item">检测方法2</view>
+    <view class="item">detectors</view>
   </swiper-item> 
 
     <!--第三个轮播图-->
   <swiper-item>
-    <view class="item">检测方法3</view>
+    <view class="item">yolo</view>
+  </swiper-item> 
+
+      <!--第四个轮播图-->
+  <swiper-item>
+    <view class="item">transfer</view>
   </swiper-item> 
 </swiper>
 
