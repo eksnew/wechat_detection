@@ -8,6 +8,7 @@ export const store = observable({
   activeTabBarIndex:0,//导航栏选中的标签索引
   ifLogin:0,//默认0未登录
   methodChoice:0,//选中的检测方法 0：faster_rcnn   1：detectors_rcnn   2：yolo
+  score_thr:0.3,//检测置信度阈值
 
   //计算属性
   //actions函数，专门来修改store中数据的值
@@ -17,6 +18,10 @@ export const store = observable({
   //更新store中的methodChoice变量
   updateChoice:action(function(index){
     this.methodChoice = index
+  }),
+  //更新store中的score_thr变量
+  updateScore:action(function(index){
+    this.score_thr = index
   })
 
 })

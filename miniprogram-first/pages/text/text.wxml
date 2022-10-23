@@ -18,6 +18,10 @@
   </swiper-item> 
 </swiper>
 
+<form bindsubmit="formSubmit">
+  <input type="text" name="score" class="content" placeholder="请输入检测置信度阈值"/>
+  <button class="wehx-foot-btn" hover-class="wehx-button_hover" formType="submit">确定</button>
+</form>
 
 <view>
   <view class ="camera-container">

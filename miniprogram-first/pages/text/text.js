@@ -14,11 +14,13 @@ Page({
   storeBindings:{
     store,
     fields:{
-      methodChoice:'methodChoice'
+      methodChoice:'methodChoice',
+      score_thr:'score_thr'
     },
 
     actions:{
-      updateChoice:'updateChoice'
+      updateChoice:'updateChoice',
+      updateScore:'updateScore'
     },
   },
 
@@ -41,9 +43,22 @@ Page({
     this.setData({
       methodChoice:e.detail.current
     })
+    //console.log(  store.methodChoice)
     //console.log( e.detail.current)
 
   },
+  //改变检测置信度阈值时调用的函数
+  formSubmit:function(e){
+    this.updateScore(e.detail.value.score)
+    //console.log(e.detail.value.score)
+    this.setData({
+      score_thr:e.detail.value.score
+    })
+    console.log(  store.score_thr)
+    
+  },
+
+
 
 
   /**
