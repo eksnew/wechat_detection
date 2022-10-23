@@ -18,66 +18,70 @@
 
 1. 准备环境
 
-假设已经安装了 CUDA 11.6 驱动程序，使用 conda 新建虚拟环境并进入：
+    假设已经安装了 CUDA 11.6 驱动程序，使用 conda 新建虚拟环境并进入：
 
-```shell
-conda create -n wechat_detection python=3.9
-conda activate wechat_detection
-```
+    ```shell
+    conda create -n wechat_detection python=3.9
+    conda activate wechat_detection
+    ```
 
 2. 安装 cudatoolkit 和 PyTorch 以及相关扩展
 
-请保证 `cudatoolkit` 与驱动程序版本一致，通过以下命令行查看：
+    请保证 `cudatoolkit` 与驱动程序版本一致，通过以下命令行查看：
 
-```shell
-nvidia-smi
-```
-假设已经配置 `conda forge` ，安装 cudatoolkit 和 cudnn：
+    ```shell
+    nvidia-smi
+    ```
+    假设已经配置 `conda forge` ，安装 cudatoolkit 和 cudnn：
 
-```shell
-conda install cudatoolkit=11.6
-conda install cudnn
-```
-参考 [PyTorch 官网](https://pytorch.org/) 使用指令安装 PyTorch 和 torchvision
-,以当前环境为例：
+    ```shell
+    conda install cudatoolkit=11.6
+    conda install cudnn
+    ```
 
-```shell
-conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
-```
+    参考 [PyTorch 官网](https://pytorch.org/) 使用指令安装 PyTorch 和 torchvision，以当前环境为例：
+
+    ```shell
+    conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
+    ```
 
 3. 安装 MMDetection
 
-安装详细流程建议参考 [MIM](https://github.com/open-mmlab/mim) ，从安装openmim开始：
-```shell
-pip install openmim
-```
+    安装详细流程建议参考 [MIM](https://github.com/open-mmlab/mim) ，从安装openmim开始：
+    ```shell
+    pip install openmim
+    ```
 
-请务必安装兼容 CUDA 功能的 MMCV_full，以当前环境为例，使用如下指令：
+    请务必安装兼容 CUDA 功能的 MMCV_full，以当前环境为例，使用如下指令：
 
-```shell
-pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu116/torch1.12.0/index.html
-```
+    ```shell
+    pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu116/torch1.12.0/index.html
+    ```
 
-安装MMDetection：
+    使用 `pip` 命令或 `mim` 命令安装MMDetection：
 
-```shell
-pip install mmdet
-```
+    ```shell
+    pip install mmdet
+    ```
+    ```shell
+    mim install mmdet
+    ```
 
-上述的命令会在环境中安装最新版本的 MMCV-full 和 MMDetection。（截止到2022/10，mmcv-full=1.6.1, mmdet=2.25.1）
+    上述的命令会在环境中安装最新版本的 MMCV-full 和 MMDetection。（截止到2022/10，mmcv-full=1.6.1, mmdet=2.25.1）
 
-如果 MMDetection 环境配置成功，运行测试程序将得到图片结果：
+    如果 MMDetection 环境配置成功，运行测试程序将得到图片结果：
 
-```shell
-python image_demo.py
-```
+    ```shell
+    python image_demo.py
+    ```
 
 4. 服务器环境搭建
-在环境 wechat_detection 中运行如下命令以安装搭建Diangle服务器所需要的扩展：
 
-```shell
-Please fill in the blanks.
-```
+    在环境 wechat_detection 中运行如下命令以安装搭建Diangle服务器所需要的扩展：
+
+    ```shell
+    Please fill in the blanks.
+    ```
 
 
 
@@ -95,3 +99,5 @@ git add .
 git commit -m "description"
 git push origin branch_name
 ```
+
+当然也可以使用 TortoiseGit 提交并推送。
