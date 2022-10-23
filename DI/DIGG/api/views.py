@@ -22,7 +22,7 @@ from rest_framework.views import APIView
 class CodeView(APIView):
     def post(self, request, *args, **kwargs):
         # print(request.data)# 接收请求体传过来的数据
-        # print(request.data['type'])
+        print(request.data['type'])
         if request.data['type'] == "camera":
             pic_base64 = request.data[
                 'base1']  # print("pic_base64:", type(pic_base64) ) #  <class 'str'>
@@ -31,8 +31,9 @@ class CodeView(APIView):
             )  # base64解码为 \x**\x**\x**\x** #print("pic:", type(pic)) # pic: <class 'bytes'>
 
             # 改为不保存在本地，直接传递
-            real_pic = base64_to_img(pic_base64)
-
+            real_pic = store.base64_to_img(pic_base64)
+            score = float(request.data['score_thr'])
+            print('score_thr', score)
             # 调用模型检测识别
             if request.data['methodChoice'] == 0:  # faster_rcnn
                 result_method = inference_detector(
@@ -46,7 +47,9 @@ class CodeView(APIView):
                 result_method = inference_detector(
                     store.model_yolo,
                     real_pic)
-            obj_dic = get_info_from_model_result(result_method, 0.3)
+            obj_dic = store.get_info_from_model_result(result_method, real_pic.shape, score)
+            print(type(obj_dic))
+            print(obj_dic)
             return Response({
                     "state": 1,
                     "result_base64": obj_dic
