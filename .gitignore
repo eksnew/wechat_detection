@@ -9,3 +9,4 @@ epoch_30.pth
 *.pyc
 *.jpg
 *.png
+.vs
