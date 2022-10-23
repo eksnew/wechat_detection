@@ -199,24 +199,21 @@ Page({
         methodName: " detectors " 
       })
     }
-    else{
+    else if(store.methodChoice == 2){
       this.setData({
         methodName: " yolo " 
       })
     }
+    else{
+      this.setData({
+        methodName: " transfer " 
+      })
+    }
     //检测置信度阈值
-    console.log(store.score_thr)
+    //console.log(store.score_thr)
     this.setData({
       'score_thr': store.score_thr
     })
-    
-    /*
-    var myDate = new Date();
-    this.setData({
-      detectionFps: myDate.getTime() //获取当前时间(从1970.1.1开始的毫秒数) 
-    })
-    */
-
   },
     /**
    * 生命周期函数--监听页面卸载

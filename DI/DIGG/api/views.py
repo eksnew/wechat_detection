@@ -1,10 +1,10 @@
-'''
+"""
 Author: eksnew
-Description: 
+Description:
 Date: 2022-10-20 15:13:58
 LastEditTime: 2022-10-21 15:02:57
 LastEditors: eksnew
-'''
+"""
 import base64
 
 import cv2
@@ -47,6 +47,11 @@ class CodeView(APIView):
                 result_method = inference_detector(
                     store.model_yolo,
                     real_pic)
+            elif request.data['methodChoice'] == 3:
+                result_method = inference_detector(
+                    store.model_transfer,
+                    real_pic)
+
             obj_dic = store.get_info_from_model_result(result_method, real_pic.shape, score)
             print(type(obj_dic))
             print(obj_dic)

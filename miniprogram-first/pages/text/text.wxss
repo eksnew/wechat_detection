@@ -22,6 +22,9 @@ swiper-item:nth-child(2){
 swiper-item:nth-child(3){
   background-color: lightpink;
 }
+swiper-item:nth-child(4){
+  background-color:slateblue;
+}
 
 
 .camera-container{
